@@ -1,2 +1,2 @@
 # machine-learning-project
-這份資料預計包含 自動分類影評分析系統 鐵達尼號生存預測 波士頓房價預測 並且有手刻程式模型(幫我想這個的確切英文用法) 以及相關套件的使用
+This document is expected to include an automated sentiment analysis system for movie reviews, a survival prediction model for the Titanic dataset, and a house price prediction model for Boston. These models will be differentiated based on whether they were implemented using hand-written code or using pre-existing software libraries.

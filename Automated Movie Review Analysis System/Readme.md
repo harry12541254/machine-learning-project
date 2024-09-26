@@ -1,59 +1,56 @@
-# 🎬 Movie Review Sentiment Analysis
+# Sentiment Classification Using Logistic Regression
 
-![Sentiment Analysis](https://miro.medium.com/max/1400/1*1JZF-2-0V3jQG3nDl1_IaA.png)
+This project implements a simple sentiment classification model using logistic regression. The model takes text input and classifies the sentiment as positive or negative by extracting word and character-based features and learning the relationships using gradient descent.
 
-## 📚 Table of Contents
+## Project Structure
 
-- [📖 Introduction](#-introduction)
-- [✨ Features](#-features)
-- [🚀 Installation](#-installation)
-  - [🔧 Prerequisites](#-prerequisites)
-  - [📥 Clone the Repository](#-clone-the-repository)
-  - [📦 Install Dependencies](#-install-dependencies)
-- [🛠️ Usage](#️-usage)
-  - [📂 Data Preparation](#-data-preparation)
-  - [📝 Feature Extraction](#-feature-extraction)
-  - [🏋️‍♂️ Training the Model](#️-training-the-model)
-  - [📊 Evaluating the Model](#-evaluating-the-model)
-  - [🎯 Generating Test Cases](#-generating-test-cases)
-- [📁 Project Structure](#-project-structure)
-- [🔍 Functionality Overview](#-functionality-overview)
-  - [📝 Feature Extraction](#-feature-extraction-1)
-    - [🔠 Word Features](#-word-features)
-    - [🔤 Character N-gram Features](#-character-n-gram-features)
-  - [📈 Learning Predictor](#-learning-predictor)
-  - [🧪 Dataset Generation](#-dataset-generation)
-  - [📏 Evaluation](#-evaluation)
-- [💡 Examples](#-examples)
-  - [🔠 Word Feature Extraction](#-word-feature-extraction)
-  - [🔤 Character 3-gram Feature Extraction](#-character-3-gram-feature-extraction)
-  - [🏋️‍♂️ Training and Evaluation](#️-training-and-evaluation)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
-- [🙏 Acknowledgments](#-acknowledgments)
+- `extractWordFeatures(x: str)`: Extracts word frequency features from a given string.
+- `learnPredictor()`: Implements logistic regression using gradient descent to learn the weight vector based on the training data.
+- `generateDataset()`: Generates a dataset with examples classified by the learned weight vector.
+- `extractCharacterFeatures(n: int)`: Extracts n-gram character features from a string.
+- `testValuesOfN(n: int)`: Tests the model with different values of `n` for n-gram features.
 
-## 📖 Introduction
+## Features
 
-Welcome to the **Movie Review Sentiment Analysis** project! This project focuses on building a sentiment classifier that can determine whether a given movie review is positive or negative. Leveraging Natural Language Processing (NLP) techniques and machine learning algorithms, specifically logistic regression with gradient descent, this project provides a comprehensive approach to understanding and classifying the sentiments expressed in movie reviews.
+1. **Word Features**: Extracts features based on word frequency.
+2. **Character N-gram Features**: Allows character-level feature extraction for more granular analysis (e.g., capturing sentiment nuances in shorter texts).
+3. **Logistic Regression**: Uses sigmoid function for classification and optimizes weights using gradient descent.
 
-## ✨ Features
+## How It Works
 
-- **🔠 Word Feature Extraction**: Convert text data into numerical feature vectors based on word occurrences.
-- **🔤 Character N-gram Feature Extraction**: Capture subword information by extracting character n-grams.
-- **📈 Logistic Regression Classifier**: Implemented using gradient descent for efficient training.
-- **🧪 Dataset Generation**: Create synthetic datasets for testing and validation purposes.
-- **📊 Evaluation Metrics**: Assess model performance on training and validation datasets.
-- **🔍 Error Analysis**: Analyze misclassifications to understand model weaknesses.
+1. **Feature Extraction**: 
+   - The model supports both word-level and character-level n-gram features. For instance, for a sentence like `"I like tacos"`, the word feature extractor will count occurrences of each word, while the character feature extractor will consider substrings of length `n`.
 
-## 🚀 Installation
+2. **Logistic Regression**: 
+   - The logistic regression model is trained using the gradient descent method. Each feature (either words or character n-grams) is weighted according to its importance in predicting the sentiment.
 
-### 🔧 Prerequisites
+3. **Training and Evaluation**: 
+   - The training process involves minimizing the error between the predicted and actual sentiments using cross-entropy loss.
+   - Errors on both training and validation datasets are printed after each epoch to track performance.
 
-- **🐍 Python 3.7 or higher**: Ensure you have Python installed. You can download it from [here](https://www.python.org/downloads/).
-- **📦 pip**: Python package installer.
+## Setup and Installation
 
-### 📥 Clone the Repository
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/sentiment-classification.git
+    ```
+   
+2. Navigate to the project directory:
+    ```bash
+    cd sentiment-classification
+    ```
 
-```bash
-git clone https://github.com/yourusername/movie-review-sentiment-analysis.git
-cd movie-review-sentiment-analysis
+3. Install dependencies (if any):
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+You can train the model with a custom dataset or test with the provided test cases.
+
+### Train the Model
+To train the model with word features or character n-gram features, you can modify the `testValuesOfN()` function:
+
+```python
+testValuesOfN(3)  # For example, testing with 3-gram character features

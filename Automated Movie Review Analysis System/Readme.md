@@ -4,6 +4,19 @@ This project implements a simple sentiment classification model using logistic r
 
 ## Project Structure
 
+- `submission.py`: Contains the core implementation for the sentiment classification model using logistic regression. This includes feature extraction, model training (`learnPredictor`), and dataset generation.
+- `polarity.train`: The training dataset for sentiment classification.
+- `polarity.dev`: The validation dataset for evaluating model performance.
+- `util.py`: A utility file that includes helper functions such as `dotProduct`, `increment`, and others to facilitate vector operations.
+- `error-analysis`: Stores the output of the model’s error analysis.
+- `weights`: Stores the learned weight vector after training the model.
+- `grader.py`, `graderUtil.py`, `grader-all.js`: Files used to evaluate the implementation and ensure correctness.
+- `interactive.py`: Used for running the model in an interactive environment for debugging and testing.
+- `dictionary.txt`: A dictionary file possibly used in the model’s feature extraction.
+- `__pycache__`: Stores compiled Python files.
+
+In the submission.py, the function is define below:
+
 - `extractWordFeatures(x: str)`: Extracts word frequency features from a given string.
 - `learnPredictor()`: Implements logistic regression using gradient descent to learn the weight vector based on the training data.
 - `generateDataset()`: Generates a dataset with examples classified by the learned weight vector.
